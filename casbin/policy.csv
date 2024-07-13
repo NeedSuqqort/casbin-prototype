@@ -1,76 +1,59 @@
-p, admin, user_course, write
-p, admin, user_course, read
-p, instructor, user_course, write
-p, instructor, user_course, read
+p, admin, user_course, *
+p, instructor, user_course, *
 p, ta, user_course, read
 p, student, user_course, read
 
-p, admin, courses, write
-p, admin, courses, read
+p, admin, courses, *
 p, instructor, courses, read
 p, ta, courses, read
 p, student, courses, read
 
-p, admin, users, write
-p, admin, users, read
+p, admin, users, *
 p, instructor, users, read
 p, ta, users, read
 p, student, users, read
 
-p, admin, semesters, write
-p, admin, semesters, read
+p, admin, semesters, *
 p, instructor, semesters, read
 p, ta, semesters, read
 p, student, semesters, read
 
-p, admin, job_status, write
-p, admin, job_status, read
-p, instructor, job_status, write
-p, instructor, job_status, read
+p, admin, job_status, *
+p, instructor, job_status, *
 p, ta, job_status, read
 p, student, job_status, read
 
-p, admin, exams, write
-p, admin, exams, read
-p, instructor, exams, write
-p, instructor, exams, read
+p, admin, exams, *
+p, instructor, exams, *
 p, ta, exams, read
 p, student, exams, read
 
-p, admin, question_information, write
-p, admin, question_information, read
-p, instructor, question_information, write
-p, instructor, question_information, read
-p, ta, question_information, write
-p, ta, question_information, read
+p, admin, question_information, *
+p, instructor, question_information, *
+p, ta, question_information, *
 p, student, question_information, read
 
-p, admin, files, write
-p, admin, files, read
+p, admin, files, *
 p, instructor, files, read
 p, ta, files, read
 p, student, files, read
 
-p, admin, submission, write
-p, admin, submission, read
-p, instructor, submission, write
-p, instructor, submission, read
+p, admin, submission, *
+p, instructor, submission, *
 p, ta, submission, read
 
-p, admin, question_submissions, write
-p, admin, question_submissions, read
+p, admin, question_submissions, *
 p, instructor, question_submissions, read
 p, ta, question_submissions, read
 
-p, admin, annotations, write
-p, admin, annotations, read
-p, instructor, annotations, write
-p, instructor, annotations, read
+p, admin, annotations, *
+p, instructor, annotations, *
 p, ta, annotations, write
 p, ta, annotations, read
 p, student, annotations, read
 
 p,instructor,/protected/*,read
+p,admin,/protected/*,*
 
 g, st, student
 g, ins, instructor,

@@ -5,9 +5,9 @@ from helper import regex_match
 e = casbin.Enforcer('./casbin/model.conf','./casbin/policy.csv')
 e.add_function("r",regex_match)
 
-sub = "oscar"  
+sub = "adm"  
 obj = "/protected/gfikwbngfwngfonwg"  
-act = "read"
+act = "write"
 
 
 if e.enforce(sub, obj, act):
