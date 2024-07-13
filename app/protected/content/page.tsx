@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation"
 export default function Page(){
     const router = useRouter()
     return(
-        <div>
+        <div className="m-4">
             <div className="text-6xl my-6 text-center">
                 Protected Content
             </div>
