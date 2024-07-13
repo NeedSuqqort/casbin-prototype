@@ -1,8 +1,6 @@
 import re
 import casbin
-
-def regex_match(key1: str, key2: str) -> bool:
-    return bool(re.match(key2, key1))
+from helper import regex_match
 
 e = casbin.Enforcer('./casbin/model.conf','./casbin/policy.csv')
 e.add_function("r",regex_match)
