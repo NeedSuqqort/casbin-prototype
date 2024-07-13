@@ -1,11 +1,11 @@
 # main.py
 from flask import Flask, request, jsonify
 from casbin import Enforcer
-from helper import regex_match
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 enforcer = Enforcer('./casbin/model.conf', './casbin/policy.csv')
-enforcer.add_function("r",regex_match)
 
 @app.route('/api/access-control', methods=['POST'])
 def check_access():
@@ -19,4 +19,4 @@ def check_access():
         return jsonify({'granted': False})
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
