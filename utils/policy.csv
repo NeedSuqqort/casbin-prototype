@@ -1,1 +1,1 @@
-p, a, localhost:3000/protected/*, GET
+p, a, /protected/*, GET
