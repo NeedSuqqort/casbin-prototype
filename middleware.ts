@@ -6,7 +6,7 @@ import permissions from "./permissions.json"
 // Define the middleware function
 export async function middleware(req: NextRequest) {
   const { pathname, origin } = req.nextUrl
-  
+
   // manually set permission
   const role = "TA"
   const auth = new Authorizer("manual");

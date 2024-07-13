@@ -78,4 +78,4 @@ g, adm, admin
 g, TA, ta
 g, oscar, instructor
 
-p, oscar, /protected/content, read
+p, oscar, /protected/*, read
