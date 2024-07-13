@@ -6,15 +6,15 @@ import permissions from "./permissions.json"
 // Define the middleware function
 export async function middleware(req: NextRequest) {
   const { pathname, origin } = req.nextUrl
-
+  
   // manually set permission
-  const role = "a"
+  const role = "TA"
   const auth = new Authorizer("manual");
   auth.setPermission(permissions[role]);
   // Check if the user is accessing a protected route
   try {
     console.log(pathname, origin)
-    const res = await auth.can('read', pathname)
+    const res = await auth.can('read',pathname)
     if(!res){
       return NextResponse.redirect(`${origin}/denied`);
     }

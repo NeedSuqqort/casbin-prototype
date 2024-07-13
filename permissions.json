@@ -1,9 +1,13 @@
 {
-    "a": {
+    "student": {
+        
+    },
+    "TA": {
         "read": ["/protected/content"]
     },
-    "b": {
-        "read": ["/nothing"]
+    "instructor":{
+        "read": ["/protected/content"],
+        "write": ["/protected/content"]
     },
     "admin": {
         "read": ["/*"],

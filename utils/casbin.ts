@@ -1,20 +1,9 @@
-import { Enforcer, newEnforcer, newModel } from 'casbin';
-import { NextRequest } from 'next/server';
-let enforcer: Enforcer;
+import { newEnforcer } from "casbin";
 
 async function initCasbin() {
-  enforcer = await newEnforcer('./utils/model.conf', './utils/policy.csv');
+  // Initialize the Casbin enforcer
+  const enforcer = await newEnforcer('model.conf', 'policy.csv');
+  return enforcer;
 }
 
-initCasbin();
-
-export async function getSession(req: NextRequest) {
-  return {
-    user: {
-      role: "a"
-    },
-  };
-}
-
-// Export the Casbin enforcer
-export { enforcer };
+module.exports = initCasbin;
