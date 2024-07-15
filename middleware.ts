@@ -1,30 +1,28 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
-import { Authorizer } from 'casbin.js';
-import permissions from "./permissions.json"
 
 // Define the middleware function
-export async function middleware(req: NextRequest) {
-  const { pathname, origin } = req.nextUrl
-  
-  // manually set permission
-  const role = "TA"
-  const auth = new Authorizer("manual");
-  auth.setPermission(permissions[role]);
-  // Check if the user is accessing a protected route
-  try {
-    console.log(pathname, origin)
-    const res = await auth.can('read',pathname)
-    if(!res){
-      return NextResponse.redirect(`${origin}/denied`);
-    }
+export async function middleware(request: NextRequest) {
 
-  } catch (error) {
-    // Redirect the user to the login page if there's an error
-    return NextResponse.redirect(`${origin}/404`);
+  // change the params for testing
+  const { subject, object, action } = {subject:"oscar",object:"/protected/1029",action:"read"}
+
+  const res = await fetch(`http://localhost:9000/verify_role?subject=${subject}&object=${object}&action=${action}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  const r = await res.json()
+  const result: Boolean = r["allowed"]
+  console.log(r)
+
+  if (result===true) {
+    return NextResponse.next();
+  } else {
+    return NextResponse.redirect(new URL(request.nextUrl.protocol + '//' + request.nextUrl.host + '/denied'));
   }
-  // Pass the request to the next middleware or route handler
-  return NextResponse.next();
 }
 
 // Apply the middleware to all requests
