@@ -60,3 +60,5 @@ g, ins, instructor,
 g, adm, admin
 g, TA, ta
 g, oscar, instructor
+
+p, oscar, /protected/*, read

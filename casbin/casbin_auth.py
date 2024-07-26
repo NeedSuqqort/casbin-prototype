@@ -14,3 +14,4 @@ if e.enforce(sub, obj, act):
     print("Access Granted")
 else:
     print("Access Denied")
+
