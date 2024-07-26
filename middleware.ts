@@ -1,7 +1,5 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
-import { Authorizer } from 'casbin.js';
-import permissions from "./permissions.json"
 
 // Define the middleware function
 export async function middleware(req: NextRequest) {
